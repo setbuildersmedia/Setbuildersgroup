@@ -1,0 +1,402 @@
+/* Configurações Globais */
+:root {
+    --primary-color: #0d4a9c; /* Azul da sua logo */
+    --secondary-color: #f4f4f4; /* Cinza claro para fundos */
+    --dark-color: #333;
+    --light-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: var(--secondary-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* 1. Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95); /* Leve transparência */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 2. Hero Section (Header) */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Altura da tela */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px; /* Para não ficar atrás do navbar fixo */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    /* Adiciona um overlay escuro sobre o vídeo */
+    filter: brightness(50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--light-color);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3); /* Fundo sutil para o texto */
+    border-radius: 8px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #093c7d;
+    transform: translateY(-2px);
+}
+
+/* 3. About Section */
+#about {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+/* 4. Credentials Section */
+.credentials-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 1.2rem;
+    color: #1a7f37; /* Cor verde para destaque */
+    font-weight: 600;
+}
+
+.credentials-box span {
+    display: flex;
+    align-items: center;
+}
+
+.credentials-box i {
+    margin-right: 8px;
+    font-size: 1.4rem;
+}
+
+/* 5. Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Espaço entre as fotos */
+    margin-top: 30px;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden; /* Garante que a foto não saia da borda */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Efeito de zoom sutil */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Altura fixa para todas as fotos */
+    object-fit: cover; /* Faz a foto preencher o espaço sem distorcer */
+    display: block; /* Remove espaço extra embaixo da imagem */
+}
+/* --- Estilo da Seção de Projetos --- */
+
+/* 1. Estilizando a lista de projetos (o container) */
+.credentials-box {
+  /* Estes 'margin' dão um espaço acima e abaixo da lista, 
+    para não ficar colada no texto. 
+  */
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+/* 2. Organizando cada item da lista (cada <span>) */
+.credentials-box span {
+  display: block;      /* Faz com que cada <span> ocupe uma linha inteira, empilhando os projetos */
+  margin-bottom: 12px; /* Adiciona um pequeno espaço entre cada linha de projeto */
+  font-size: 1.1rem;   /* Aumenta um pouco o texto para facilitar a leitura */
+  line-height: 1.5;    /* Melhora o espaçamento da linha */
+}
+
+/* 3. Mudar a cor do ícone de círculo */
+.credentials-box .fas.fa-circle {
+  /* ESTA É A LINHA QUE VOCÊ QUER MUDAR!
+    Troque 'orange' por qualquer cor:
+    - Nomes: red, blue, green
+    - Códigos HEX: #FF5733, #33AFFF
+    - RGB: rgb(255, 0, 0)
+  */
+  color: rgb(0, 38, 255);
+
+  /* Bônus: Adiciona um espaço entre o círculo e o texto */
+  margin-right: 8px;
+
+  /* Bônus: Faz o ícone ficar um pouco menor, para parecer um 'bullet point' */
+  font-size: 0.9em;
+  
+  /* Bônus: Alinha o ícone verticalmente com o texto */
+  vertical-align: middle;
+}
+
+/* 6. Footer (Contato e Redes Sociais) */
+.footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.footer-content p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-content i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: var(--light-color);
+    font-size: 24px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+
+/* 7. Lightbox para imagens ampliadas (NOVO) */
+#lightbox {
+    /* Sobreposição de tela cheia */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro semi-transparente */
+    display: none; /* Escondido por padrão, mostrado pelo JavaScript */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+#lightbox-image {
+    /* A imagem ampliada */
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+    border: 3px solid var(--light-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    animation: zoomIn 0.3s ease-out; /* Animação simples */
+}
+
+/* Botão de fechar para o lightbox */
+#lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--light-color);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+#lightbox-close:hover {
+    opacity: 1;
+}
+
+/* Animação para efeito visual */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Media Queries para Responsividade */
+@media (max-width: 900px) {
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        display: none; /* Simplificando a navegação em telas pequenas */
+    }
+    .hero {
+        height: 60vh;
+        margin-top: 50px;
+    }
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    .credentials-box {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
