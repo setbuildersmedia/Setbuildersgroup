@@ -1,0 +1,449 @@
+/* Configurações Globais */
+:root {
+    --primary-color: #0d4a9c; /* Azul da sua logo */
+    --secondary-color: #f4f4f4; /* Cinza claro para fundos */
+    --dark-color: #333;
+    --light-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: var(--secondary-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* 1. Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95); /* Leve transparência */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 60px; /* Added for consistency */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* === 1a. HAMBURGER MENU (ADDED) === */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: var(--dark-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 101;
+}
+
+/* 2. Hero Section (Header) */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Altura da tela */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px; /* Para não ficar atrás do navbar fixo */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    filter: brightness(50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--light-color);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3); /* Fundo sutil para o texto */
+    border-radius: 8px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #093c7d;
+    transform: translateY(-2px);
+}
+
+/* 3. About Section */
+#about {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+/* 4. Credentials Section */
+/* These are your original styles for the "Trust and Safety" box */
+.credentials-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 1.2rem;
+    color: #1a7f37; /* Cor verde para destaque */
+    font-weight: 600;
+}
+
+.credentials-box span {
+    display: flex;
+    align-items: center;
+}
+
+.credentials-box i {
+    margin-right: 8px;
+    font-size: 1.4rem;
+}
+
+/* 5. Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Espaço entre as fotos */
+    margin-top: 30px;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden; /* Garante que a foto não saia da borda */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Efeito de zoom sutil */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Altura fixa para todas as fotos */
+    object-fit: cover; /* Faz a foto preencher o espaço sem distorcer */
+    display: block; /* Remove espaço extra embaixo da imagem */
+}
+
+/* --- Estilo da Seção de Projetos --- */
+/* Your original file had .credentials-box styles here, */
+/* which caused the bug. I have replaced it with .project-list */
+
+/* === 5a. STYLES FOR PROJECT LIST (FIXED) === */
+.project-list {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  /* Added these to make it look good */
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+.project-list span {
+  display: block;      /* Faz com que cada <span> ocupe uma linha inteira */
+  margin-bottom: 12px; /* Adiciona um pequeno espaço entre cada linha */
+  font-size: 1.1rem;   
+  line-height: 1.5;    
+}
+
+.project-list .fas.fa-circle {
+  /* This was your original color */
+  color: rgb(0, 38, 255);
+  margin-right: 8px;
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+
+/* 6. Footer (Contato e Redes Sociais) */
+.footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.footer-content p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.footer-content i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: var(--light-color);
+    font-size: 24px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+
+/* 7. Lightbox para imagens ampliadas (Your original code) */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+    border: 3px solid var(--light-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    animation: zoomIn 0.3s ease-out;
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--light-color);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+#lightbox-close:hover {
+    opacity: 1;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* === Media Queries para Responsividade (UPDATED) === */
+@media (max-width: 900px) {
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* This is the main mobile breakpoint */
+@media (max-width: 768px) { /* Changed from 600px to 768px for tablets */
+    
+    /* === MOBILE NAV STYLES (ADDED) === */
+    .nav-links {
+        display: none; /* Hide them by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        display: flex; /* Show them when hamburger is clicked */
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .nav-links a {
+        padding: 15px;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid var(--secondary-color);
+    }
+    
+    .hamburger {
+        display: block; /* Show the hamburger button */
+    }
+    /* === END OF MOBILE NAV STYLES === */
+
+    
+    .hero {
+        height: 70vh;
+        margin-top: 60px; /* Was 50px, but 60px matches navbar height */
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    /* This was in your original media query */
+    .credentials-box {
+        flex-direction: column;
+        gap: 15px;
+        /* Added this to center them when stacked */
+        align-items: center;
+    }
+
+    /* Added for better mobile readability */
+    .section {
+        padding: 40px 0;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+}
